@@ -1,4 +1,4 @@
-const API_URL = "https://testing-backend-liart.vercel.app";
+const API_URL = "testing-backend-robw0rnqa-jordiba90.vercel.app";
 
 async function llamarBackend(nombre) {
     const response = await fetch(
