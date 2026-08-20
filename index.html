@@ -8,27 +8,26 @@
 
 <body>
 
-    <p id="pantalla">Cargando texto dinámico2...</p>
+<input id="nombre" placeholder="Escribe tu nombre">
+<button onclick="llamarAPython()">Saludar</button>
+
+<p id="pantalla"></p>
 
 <script>
-  async function llamarAPython() {
-    try {
-      // URL real y exacta basada en tu configuración de Vercel
-      const url = "https://vercel.app"; 
-      
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-      
-      const datos = await res.json();
-      
-      // Inserta el resultado de la función de Python en tu HTML
-      document.getElementById('pantalla').innerText = datos.resultado; 
-    } catch (e) {
-      console.error("Error de conexión:", e);
-      document.getElementById('pantalla').innerText = "Error al conectar con el backend";
+    async function llamarAPython() {
+        const nombre = document.getElementById("nombre").value;
+        const pantalla = document.getElementById("pantalla");
+
+        const res = await fetch(
+            `https://testing-backend-liart.vercel.app/scripts?name=${encodeURIComponent(nombre)}`
+        );
+
+        const datos = await res.json();
+
+        pantalla.innerText = datos.resultado;
     }
-  }
 </script>
+
 
 
 </body>
