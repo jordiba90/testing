@@ -4,31 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testing.cat</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<input id="nombre" placeholder="Escribe tu nombre">
-<button onclick="llamarAPython()">Saludar</button>
-
-<p id="pantalla"></p>
-
-<script>
-    async function llamarAPython() {
-        const nombre = document.getElementById("nombre").value;
-        const pantalla = document.getElementById("pantalla");
-
-        const res = await fetch(
-            `https://testing-backend-liart.vercel.app/scripts?name=${encodeURIComponent(nombre)}`
-        );
-
-        const datos = await res.json();
-
-        pantalla.innerText = datos.resultado;
-    }
-</script>
-
-
-
+    <main class="window">
+        <header class="titlebar">
+            <span>testing.cat</span>
+            <div class="controls">
+                <i class="red"></i>
+                <i class="yellow"></i>
+                <i class="green"></i>
+            </div>
+        </header>
+        <iframe
+            src="https://TU-APP.streamlit.app/?embed=true"
+            title="Testing">
+        </iframe>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
