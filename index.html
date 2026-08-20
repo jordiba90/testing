@@ -6,21 +6,36 @@
     <title>testing.cat</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="window">
+
         <header class="titlebar">
             <span>testing.cat</span>
+
             <div class="controls">
                 <i class="red"></i>
                 <i class="yellow"></i>
                 <i class="green"></i>
             </div>
         </header>
-        <iframe
-            src="https://TU-APP.streamlit.app/?embed=true"
-            title="Testing">
-        </iframe>
+
+        <section class="content">
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe tu nombre"
+            >
+
+            <button onclick="saludar()">
+                Saludar
+            </button>
+
+            <div id="resultado"></div>
+        </section>
+
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
