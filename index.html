@@ -1,14 +1,20 @@
 <script>
   async function llamarAPython() {
+    const pantalla = document.getElementById('pantalla');
     try {
       const url = "https://testing-backend-git-master-jordiba90.vercel.app/"; 
       const res = await fetch(url);
-      const datos = await res.json();
       
-      document.getElementById('pantalla').innerText = datos.resultado; 
+      if (!res.ok) {
+        pantalla.innerText = `Error del servidor: ${res.status}`;
+        return;
+      }
+
+      const datos = await res.json();
+      pantalla.innerText = datos.resultado; 
     } catch (e) {
       console.error(e);
-      document.getElementById('pantalla').innerText = "Error al conectar con el backend";
+      pantalla.innerText = "Error: No se pudo procesar la respuesta del servidor.";
     }
   }
 </script>
