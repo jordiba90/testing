@@ -25,8 +25,6 @@ async function saludar() {
     }
 }
 
-function cargarPagina() {
+document.addEventListener("DOMContentLoaded", () => {
     console.log("testing.cat cargado");
-}
-
-document.addEventListener("DOMContentLoaded", cargarPagina);
+});
