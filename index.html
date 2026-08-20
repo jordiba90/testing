@@ -1,20 +1,35 @@
-<script>
-  async function llamarAPython() {
-    const pantalla = document.getElementById('pantalla');
-    try {
-      const url = "https://testing-backend-git-master-jordiba90.vercel.app/"; 
-      const res = await fetch(url);
-      
-      if (!res.ok) {
-        pantalla.innerText = `Error del servidor: ${res.status}`;
-        return;
-      }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing.cat</title>
+</head>
+<body>
 
-      const datos = await res.json();
-      pantalla.innerText = datos.resultado; 
-    } catch (e) {
-      console.error(e);
-      pantalla.innerText = "Error: No se pudo procesar la respuesta del servidor.";
-    }
-  }
-</script>
+    <button onclick="llamarAPython()">Ejecutar</button>
+    <p id="pantalla"></p>
+
+    <script>
+      async function llamarAPython() {
+        const pantalla = document.getElementById('pantalla');
+        try {
+          const url = "https://vercel.app"; 
+          const res = await fetch(url);
+          
+          if (!res.ok) {
+            pantalla.innerText = `Error del servidor: ${res.status}`;
+            return;
+          }
+
+          const datos = await res.json();
+          pantalla.innerText = datos.resultado; 
+        } catch (e) {
+          console.error(e);
+          pantalla.innerText = "Error: No se pudo procesar la respuesta del servidor.";
+        }
+      }
+    </script>
+
+</body>
+</html>
