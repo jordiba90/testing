@@ -1,73 +1,74 @@
-* {
-    box-sizing: border-box;
-}
-
-html,
+/* Configuramos el fondo completo de la página */
 body {
-    width: 100%;
-    height: 100%;
     margin: 0;
-}
-
-body {
-    background: #0b1f3a;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Color Azul Aero (Aero Blue: un tono celeste claro, fresco y brillante) */
+    background-color: #7CB9E8; 
+    
+    /* Centrado absoluto usando Flexbox */
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 30px;
-}
-
-.window {
-    width: 100%;
-    max-width: 1200px;
-    height: 85vh;
-    background: #f3f3f3;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-}
-
-.titlebar {
-    height: 40px;
-    background: #202020;
-    color: white;
-    display: flex;
     align-items: center;
-    padding: 0 14px;
-    font-size: 14px;
+    
+    /* Tipografía limpia */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.titlebar span {
-    flex: 1;
-}
-
-.controls {
+/* El contenedor del cuadro de input y los resultados */
+.contenedor-formulario {
+    background-color: #ffffff; /* Fondo blanco para el cuadro */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Sombra suave para darle profundidad */
+    text-align: center;
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre elementos */
+    width: 320px; /* Ancho fijo para que se vea ordenado */
 }
 
-.controls i {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+/* Estilos para el input de texto */
+.contenedor-formulario input {
+    padding: 10px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.red {
-    background: #ff5f57;
+.contenedor-formulario input:focus {
+    border-color: #7CB9E8; /* El borde cambia al azul aero cuando el usuario escribe */
 }
 
-.yellow {
-    background: #febc2e;
+/* Estilos para tu botón de enviar */
+.contenedor-formulario button {
+    background-color: #7CB9E8;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-.green {
-    background: #28c840;
+.contenedor-formulario button:hover {
+    background-color: #5ba3db; /* Un tono un poco más oscuro al pasar el ratón */
 }
 
-iframe {
-    display: block;
-    width: 100%;
-    height: calc(100% - 40px);
-    border: 0;
+.contenedor-formulario button:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+}
+
+/* Estilo para el texto de resultado */
+#resultado {
+    font-size: 14px;
+    color: #334155;
+    margin-top: 5px;
+    min-height: 20px; /* Evita que el cuadro salte cuando aparece el texto */
 }
