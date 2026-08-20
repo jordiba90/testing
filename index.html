@@ -11,25 +11,31 @@
     <p id="pantalla"></p>
 
     <script>
-      async function llamarAPython() {
-        const pantalla = document.getElementById('pantalla');
-        try {
-          const url = "https://vercel.app"; 
-          const res = await fetch(url);
-          
-          if (!res.ok) {
-            pantalla.innerText = `Error del servidor: ${res.status}`;
-            return;
-          }
-
-          const datos = await res.json();
-          pantalla.innerText = datos.resultado; 
-        } catch (e) {
-          console.error(e);
-          pantalla.innerText = "Error: No se pudo procesar la respuesta del servidor.";
-        }
+  async function llamarAPython() {
+    const pantalla = document.getElementById('pantalla');
+    try {
+      const url = "https://vercel.app"; 
+      const res = await fetch(url);
+      
+      // En vez de procesar JSON directo, leemos el texto crudo para investigar
+      const textoCrudo = await res.text();
+      
+      if (!res.ok) {
+        pantalla.innerText = `Error ${res.status}: Código roto en servidor.`;
+        console.log("Respuesta de Vercel:", textoCrudo);
+        return;
       }
-    </script>
+
+      // Si todo está bien, lo volvemos objeto e imprimimos el resultado
+      const datos = JSON.parse(textoCrudo);
+      pantalla.innerText = datos.resultado; 
+    } catch (e) {
+      console.error(e);
+      pantalla.innerText = "Error: La respuesta no es un JSON válido.";
+    }
+  }
+</script>
+
 
 </body>
 </html>
