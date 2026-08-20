@@ -10,32 +10,35 @@
 
     <p id="pantalla">Cargando texto dinámico...</p>
 
-<script>
-    async function llamarAPython() {
-        const pantalla = document.getElementById("pantalla");
+    <script>
+        async function llamarAPython() {
+            const pantalla = document.getElementById("pantalla");
 
-        try {
-            const res = await fetch(
-                "https://testing-backend-liart.vercel.app/scripts"
-            );
+            try {
+                const res = await fetch(
+                    "https://testing-backend-liart.vercel.app/scripts"
+                );
 
-            if (!res.ok) {
-                throw new Error(`HTTP ${res.status}`);
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+
+                const datos = await res.json();
+
+                pantalla.innerText = datos.resultado;
+
+            } catch (error) {
+                console.error("Error:", error);
+                pantalla.innerText =
+                    "Error al conectar con el backend.";
             }
-
-            const datos = await res.json();
-
-            pantalla.innerText = datos.resultado;
-
-        } catch (error) {
-            console.error(error);
-            pantalla.innerText = "Error al conectar con el backend.";
         }
-    }
 
-    window.addEventListener("DOMContentLoaded", llamarAPython);
-</script>
-
+        window.addEventListener(
+            "DOMContentLoaded",
+            llamarAPython
+        );
+    </script>
 
 </body>
 </html>
