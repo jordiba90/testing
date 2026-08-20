@@ -7,14 +7,13 @@
 </head>
 <body>
 
-    <!-- Eliminamos el botón. El texto aparecerá directamente aquí -->
     <p id="pantalla">Cargando texto dinámico...</p>
 
     <script>
       async function llamarAPython() {
         const pantalla = document.getElementById('pantalla');
         try {
-          const url = "https://testing-backend-nsz6gmfj2-jordiba90.vercel.app/"; 
+          const url = "https://vercel.com/jordiba90/testing-backend"; 
           const res = await fetch(url);
           
           const textoCrudo = await res.text();
