@@ -5,34 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testing.cat</title>
 </head>
+
 <body>
 
     <p id="pantalla">Cargando texto dinámico...</p>
 
     <script>
-      async function llamarAPython() {
-        const pantalla = document.getElementById('pantalla');
-        try {
-          const url = "https://vercel.com/jordiba90"; 
-          const res = await fetch(url);
-          
-          const textoCrudo = await res.text();
-          
-          if (!res.ok) {
-            pantalla.innerText = `Error del servidor: ${res.status}`;
-            return;
-          }
+        async function llamarAPython() {
+            const pantalla = document.getElementById("pantalla");
 
-          const datos = JSON.parse(textoCrudo);
-          pantalla.innerText = datos.resultado; 
-        } catch (e) {
-          console.error(e);
-          pantalla.innerText = "Error: No se pudo procesar la respuesta.";
+            try {
+                const url = "https://testing-backend-liart.vercel.app/scripts";
+
+                const res = await fetch(url);
+
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+
+                const datos = await res.json();
+
+                pantalla.innerText = datos.resultado;
+
+            } catch (error) {
+                console.error("Error al conectar con el backend:", error);
+
+                pantalla.innerText =
+                    "Error al conectar con el backend.";
+            }
         }
-      }
 
-      // Ejecuta la función de forma automática al cargar la web
-      window.onload = llamarAPython;
+        window.addEventListener("DOMContentLoaded", llamarAPython);
     </script>
 
 </body>
