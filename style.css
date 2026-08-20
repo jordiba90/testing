@@ -1,50 +1,60 @@
-/* Configuramos el fondo completo de la página */
+/* Centrado absoluto y fondo azul aero */
 body {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    /* Color Azul Aero (Aero Blue: un tono celeste claro, fresco y brillante) */
-    background-color: #7CB9E8; 
+    background-color: #7CB9E8; /* Azul Aero */
     
-    /* Centrado absoluto usando Flexbox */
     display: flex;
     justify-content: center;
     align-items: center;
     
-    /* Tipografía limpia */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* El contenedor del cuadro de input y los resultados */
-.contenedor-formulario {
-    background-color: #ffffff; /* Fondo blanco para el cuadro */
-    padding: 30px;
+/* Caja contenedora */
+.window {
+    background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Sombra suave para darle profundidad */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Espaciado entre elementos */
-    width: 320px; /* Ancho fijo para que se vea ordenado */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    overflow: hidden;
 }
 
-/* Estilos para el input de texto */
-.contenedor-formulario input {
+/* Barra superior minimalista */
+.titlebar {
+    background-color: #f1f5f9;
+    padding: 10px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    text-align: left;
+}
+
+/* Espaciado del contenido */
+.content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Inputs y botones estilizados */
+.content input {
     padding: 10px 14px;
     border: 2px solid #cbd5e1;
     border-radius: 6px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.2s;
 }
 
-.contenedor-formulario input:focus {
-    border-color: #7CB9E8; /* El borde cambia al azul aero cuando el usuario escribe */
+.content input:focus {
+    border-color: #7CB9E8;
 }
 
-/* Estilos para tu botón de enviar */
-.contenedor-formulario button {
+.content button {
     background-color: #7CB9E8;
     color: white;
     border: none;
@@ -53,22 +63,15 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.contenedor-formulario button:hover {
-    background-color: #5ba3db; /* Un tono un poco más oscuro al pasar el ratón */
+.content button:hover {
+    background-color: #5ba3db;
 }
 
-.contenedor-formulario button:disabled {
-    background-color: #cbd5e1;
-    cursor: not-allowed;
-}
-
-/* Estilo para el texto de resultado */
 #resultado {
     font-size: 14px;
     color: #334155;
-    margin-top: 5px;
-    min-height: 20px; /* Evita que el cuadro salte cuando aparece el texto */
+    text-align: center;
+    min-height: 20px;
 }
