@@ -1,5 +1,5 @@
 // CORRECCIÓN: Se añade https:// para evitar el error de conexión
-const API_URL = "https://vercel.app";
+const API_URL = "https://testing-backend-dsv2e7k98-jordiba90.vercel.app/";
 
 async function llamarBackend(nombre) {
     const response = await fetch(
