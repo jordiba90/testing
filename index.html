@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>testing.cat</title>
-</head>
-<body>
-
-    <button onclick="llamarAPython()">Ejecutar</button>
-    <p id="pantalla"></p>
-
-    <script>
-        async function llamarAPython() {
-            try {
-                // Tu URL real de Vercel asignada al proyecto
-                const url = "https://testing-backend-git-master-jordiba90.vercel.app/";
-                const res = await fetch(url);
-                const datos = await res.json();
-                document.getElementById('pantalla').innerText = datos.resultado;
-            } catch (e) {
-                document.getElementById('pantalla').innerText = "Error de conexión";
-            }
-        }
-    </script>
-</body>
-</html>
+<script>
+  async function llamarAPython() {
+    try {
+      const url = "https://testing-backend-git-master-jordiba90.vercel.app/"; 
+      const res = await fetch(url);
+      const datos = await res.json();
+      
+      document.getElementById('pantalla').innerText = datos.resultado; 
+    } catch (e) {
+      console.error(e);
+      document.getElementById('pantalla').innerText = "Error al conectar con el backend";
+    }
+  }
+</script>
