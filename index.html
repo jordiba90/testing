@@ -6,34 +6,20 @@
     <title>testing.cat</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <main class="window">
 
+    <main class="window">
+        <!-- Barra de título minimalista sin botones de control -->
         <header class="titlebar">
             <span>testing.cat</span>
-
-            <div class="controls">
-                <i class="red"></i>
-                <i class="yellow"></i>
-                <i class="green"></i>
-            </div>
         </header>
 
+        <!-- Contenido del formulario -->
         <section class="content">
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Escribe tu nombre"
-            >
-
-            <button onclick="saludar()">
-                Saludar
-            </button>
-
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+            <button onclick="saludar()">Saludar</button>
             <div id="resultado"></div>
         </section>
-
     </main>
 
     <script src="script.js"></script>
